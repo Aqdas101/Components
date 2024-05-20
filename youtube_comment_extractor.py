@@ -59,3 +59,8 @@ class YouTubeCommentExtractor:
     df.columns = ['comment', 'author', 'date', 'likes', 'replies']
 
     return df
+
+
+# comments = YouTubeCommentExtractor('') # Enter YouTube Video Link 
+# comments.comment_extract()
+# comments.comment_clean()
