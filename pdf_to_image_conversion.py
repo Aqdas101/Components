@@ -1,3 +1,7 @@
+# Dependencies
+# ! pip install pdf2image
+# ! sudo apt-get install poppler-utils
+
 from typing import List
 from pdf2image import convert_from_path
 from PIL import Image
