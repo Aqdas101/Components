@@ -23,3 +23,6 @@ class pdf_to_image:
 
   def save_image(self, name: str) -> None:
     [i.save(f'{name}.jpg', 'JPEG') for i in self.return_image_bytes()]
+
+# convert_image = pdf_to_image('PDF_path')
+# convert_image.save_image('invoice_DIN')
