@@ -1,3 +1,6 @@
+# Functionality: Get YouTube Video link and return all comments in dataframe
+
+
 from googleapiclient.discovery import build
 from urllib.parse import urlparse, parse_qs
 import pandas as pd
