@@ -2,6 +2,8 @@
 # ! pip install pdf2image
 # ! sudo apt-get install poppler-utils
 
+# Functionality: Read PDF and return images
+
 from typing import List
 from pdf2image import convert_from_path
 from PIL import Image
