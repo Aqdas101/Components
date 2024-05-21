@@ -24,7 +24,8 @@ class pdf_to_image:
     return pages_images
 
   def save_image(self, name: str) -> None:
-    [i.save(f'{name}.jpg', 'JPEG') for i in self.return_image_bytes()]
+    for idx, image in enumerate(self.return_image_bytes()):
+      image.save(f'{name}_{idx + 1}.jpg', 'JPEG')
 
 # convert_image = pdf_to_image('PDF_path')
 # convert_image.save_image('invoice_DIN')
