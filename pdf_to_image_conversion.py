@@ -14,6 +14,7 @@ class PDFToImageModel(BaseModel):
 
 class pdf_to_image:
   def __init__(self, pdf_path: str):
+    self.pdf_path = pdf_path
     try:
       validate_data = PDFToImageModel(pdf_path=pdf_path)
     except Exception as e:
