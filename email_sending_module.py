@@ -31,18 +31,20 @@ def sent_email(receiver_email: str, sender_email: str,  email_subject: str, emai
     email_data = EmailModel(receiver_email=receiver_email, sender_email=sender_email,
                             email_subject=email_subject, email_body=email_body, app_password=app_password)
   except ValidationError as e:
-    raise ValueError(f"Invalid email address {e}")
+    raise ValueError(f"Email Model Error: {e}")
+
+  
   message = MIMEMultipart() 
   message['From'] = email_data.sender_email 
   message['To'] = email_data.receiver_email 
 
-  message['Subject'] = email_subject 
-  body = email_body
+  message['Subject'] = email_data.email_subject 
+  body = email_data.email_body
 
   message.attach(MIMEText(body, 'plain')) 
   server = smtplib.SMTP('smtp.gmail.com', 587) 
   server.starttls()
 
-  server.login(email_data.receiver_email, app_password)
+  server.login(email_data.receiver_email, email_data.app_password)
   server.sendmail(email_data.receiver_email, email_data.sender_email, message.as_string()) 
   server.quit()
